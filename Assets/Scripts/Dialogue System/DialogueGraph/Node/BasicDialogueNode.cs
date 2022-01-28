@@ -2,21 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Narration/Dialogue/Node/Basic")]
 public class BasicDialogueNode : DialogueNode
 {
-    [SerializeField]
-    private DialogueNode m_NextNode;
-    public DialogueNode NextNode => m_NextNode;
+    [SerializeField] private DialogueNode m_NextNode;
 
-
-    public override bool CanBeFollowedByNode(DialogueNode node)
+    public DialogueNode GetNextNode()
     {
-        return m_NextNode == node;
-    }
-
-    public override void Accept(DialogueNodeVisitor visitor)
-    {
-        visitor.Visit(this);
+        return m_NextNode;
     }
 }

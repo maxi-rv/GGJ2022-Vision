@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Narration/Line")]
-public class NarrationLine : ScriptableObject
+public class NarrationLine : MonoBehaviour
 {
-    [SerializeField]
-    private NarrationCharacter m_Speaker;
-    [SerializeField]
-    private string m_Text;
+    [SerializeField] private NarrationCharacter m_Speaker;
+    [SerializeField] private string m_Text;
 
-    public NarrationCharacter Speaker => m_Speaker;
-    public string Text => m_Text;
+    public NarrationCharacter GetSpeaker()
+    {
+        return m_Speaker;
+    }
+
+    public string GetText()
+    {
+        return m_Text;
+    }
 }

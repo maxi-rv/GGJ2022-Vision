@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class DialogueNode : ScriptableObject
+public abstract class DialogueNode : MonoBehaviour
 {
-    [SerializeField]
-    private NarrationLine m_DialogueLine;
+    [SerializeField] private NarrationLine m_DialogueLine;
 
-    public NarrationLine DialogueLine => m_DialogueLine;
-
-    public abstract bool CanBeFollowedByNode(DialogueNode node);
-    public abstract void Accept(DialogueNodeVisitor visitor);
+    public NarrationLine GetDialogueLine()
+    {
+        return m_DialogueLine;
+    }
 }

@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Narration/Dialogue/Dialogue")]
-public class DialogueGraph : ScriptableObject
+public class DialogueGraph : MonoBehaviour
 {
     [SerializeField]
     private DialogueNode m_FirstNode;
-    public DialogueNode FirstNode => m_FirstNode;
+
+    public DialogueNode GetFirstNode()
+    {
+        return m_FirstNode;
+    }
 }
