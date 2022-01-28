@@ -9,7 +9,6 @@ public class UIController : MonoBehaviour
     // Variables
     [SerializeField] private GameObject BackgroundMenu;
     [SerializeField] private GameObject Message;
-    [SerializeField] private GameObject MaskAnimation;
     [SerializeField] private GameObject Fader;
 
     // Update is called once per frame
@@ -49,15 +48,5 @@ public class UIController : MonoBehaviour
     public void disableBackgroundMenu()
     {
         BackgroundMenu.SetActive(false);
-    }
-
-    public void enableMaskAnimation()
-    {
-        MaskAnimation.SetActive(true);
-    }
-
-    public void disableMaskAnimation()
-    {
-        MaskAnimation.SetActive(false);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 using Koffie.SimpleTasks;
 
 public class GameController : MonoBehaviour
@@ -11,18 +12,18 @@ public class GameController : MonoBehaviour
 
     //COMPONENTS
     [SerializeField] private UIController uiController;
-    [SerializeField] private IntroAnimController introAnimController;
+    [SerializeField] private AudioManager audioManager;
     public LevelController levelController;
 
     //VARIABLES
     [SerializeField] private GameObject playerPrefab;
     private PlayerController playerController;
-    private GameObject playerInstance;  
+    private GameObject playerInstance;
+    private PlayerInputActions playerInputActions;
     private string currentSceneName;
     private bool onPlayingLevel;
     private int currentLevel;
     private bool playerSpawnPositionSetted;
-    private bool flagSetted;
 
     void Awake()
     {
@@ -36,36 +37,33 @@ public class GameController : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
+
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+
         //Preparing first message
         onPlayingLevel = false;
+        currentLevel = -1;
+        
+    }
+
+    private void Start()
+    {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(introAnimController.animationFinished && !flagSetted)
-        {
-            uiController.playFade();
-            STasks.Do(() => uiController.disableMaskAnimation(), after: 1.0f);
-            flagSetted = true;
-        }
-
-        if(introAnimController.animationFinished && !flagSetted)
-        {
-            uiController.playFade();
-            STasks.Do(() => uiController.disableMaskAnimation(), after: 1.0f);
-            flagSetted = true;
-        }
-
-        //Press Enter to Start
-        if(Input.GetKey(KeyCode.Return) && !onPlayingLevel && currentLevel!=0 && introAnimController.animationFinished)
+        //Press Enter to Start, and go to intro scene
+        if(playerInputActions.Player.Enter.IsPressed() && !onPlayingLevel && currentLevel!=0)
         {
             currentLevel = 0;
             uiController.playFade();
 
             STasks.Do(() => loadIntroScene(), after: 1.0f);
-            STasks.Do(() => uiController.playFade(), after: 21.0f);
-            STasks.Do(() => loadFirstLevel(), after: 22.0f);
+            STasks.Do(() => uiController.playFade(), after: 4.0f);
+            STasks.Do(() => loadFirstLevel(), after: 5.0f);
         }
         else if(onPlayingLevel) //While playing a level
         {
