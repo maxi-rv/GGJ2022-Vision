@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("MoveX", inputVector.x);
         animator.SetFloat("MoveY", inputVector.y);
 
-        if (inputVector.x < Mathf.Abs(0.1f) && inputVector.y < Mathf.Abs(0.1f))
+        if (Mathf.Abs(inputVector.x) < 0.1f && Mathf.Abs(inputVector.y) < 0.1f)
         {
             animator.SetBool("IsIdle", true);
         } else

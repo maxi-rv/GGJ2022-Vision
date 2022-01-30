@@ -1,6 +1,6 @@
-using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -34,11 +34,6 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
 
-    }
-
-    private void Start()
-    {
-        Play("Shine");
     }
 
     public void Play(string name)

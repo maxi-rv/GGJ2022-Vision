@@ -1,61 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &298027267923163317
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6621828239658180808}
-  - component: {fileID: 6700061693857741063}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6621828239658180808
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298027267923163317}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8054218618446555827}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6700061693857741063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298027267923163317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81426e6392e27cd49bc8d77498065973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Darks
-    clip: {fileID: 8300000, guid: 226b1b3a1c82075428d3b4dcfc41a1d3, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: SiempreBrillando
-    clip: {fileID: 8300000, guid: 96e70d20a8eb50d438631e3b2f988df6, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
 --- !u!1 &8054218618446555830
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,6 +11,7 @@ GameObject:
   - component: {fileID: 8054218618446555827}
   - component: {fileID: 8054218618446555828}
   - component: {fileID: 1987982735276210916}
+  - component: {fileID: 7496559738429100296}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -86,7 +31,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8054218619462700926}
-  - {fileID: 6621828239658180808}
   - {fileID: 8054218618956558248}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -104,11 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiController: {fileID: 8054218618956558244}
+  audioManager: {fileID: 7496559738429100296}
   levelController: {fileID: 0}
-  playerPrefab: {fileID: 5271039761142765026, guid: d0d89973a5e16854899574ccbd1e1574, type: 3}
-  currentSceneName: 
-  onPlayingLevel: 0
-  currentLevel: 0
+  playerPrefab: {fileID: 3821545168281851729, guid: d0d89973a5e16854899574ccbd1e1574, type: 3}
 --- !u!114 &1987982735276210916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +81,31 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7496559738429100296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8054218618446555830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81426e6392e27cd49bc8d77498065973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Darks
+    clip: {fileID: 8300000, guid: 226b1b3a1c82075428d3b4dcfc41a1d3, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: SiempreBrillando
+    clip: {fileID: 8300000, guid: 96e70d20a8eb50d438631e3b2f988df6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!1 &8054218618618690807
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +351,7 @@ RectTransform:
   - {fileID: 8054218620170309993}
   - {fileID: 8054218619858235744}
   m_Father: {fileID: 8054218618446555827}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

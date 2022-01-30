@@ -60,10 +60,11 @@ public class GameController : MonoBehaviour
         {
             currentLevel = 0;
             uiController.playFade();
+            audioManager.Play("Darks");
 
             STasks.Do(() => loadIntroScene(), after: 1.0f);
-            STasks.Do(() => uiController.playFade(), after: 4.0f);
-            STasks.Do(() => loadFirstLevel(), after: 5.0f);
+            STasks.Do(() => uiController.playFade(), after: 5.0f);
+            STasks.Do(() => loadFirstLevel(), after: 6.0f);
         }
         else if(onPlayingLevel) //While playing a level
         {
