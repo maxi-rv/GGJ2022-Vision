@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
 
+    private Animator animator;
+
     [SerializeField] [Range(0.0f, 10.0f)] private float movementSpeed;
 
 
@@ -13,6 +15,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
+        animator = GetComponent<Animator>();
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
@@ -22,10 +25,17 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
         rb.velocity = new Vector2(inputVector.x, inputVector.y) * movementSpeed;
+
+        animator.SetFloat("MoveX", inputVector.x);
+        animator.SetFloat("MoveY", inputVector.y);
+
+        if (inputVector.x < Mathf.Abs(0.1f) && inputVector.y < Mathf.Abs(0.1f))
+        {
+            animator.SetBool("IsIdle", true);
+        } else
+        {
+            animator.SetBool("IsIdle", false);
+        }
     }
 
-    private void PlayerInput_onActionTriggered(InputAction.CallbackContext context)
-    {
-        Debug.Log(context);
-    }
 }
