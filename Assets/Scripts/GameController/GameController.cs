@@ -63,8 +63,11 @@ public class GameController : MonoBehaviour
             audioManager.Play("Darks");
 
             STasks.Do(() => loadIntroScene(), after: 1.0f);
-            STasks.Do(() => uiController.playFade(), after: 5.0f);
-            STasks.Do(() => loadFirstLevel(), after: 6.0f);
+            STasks.Do(() => uiController.showDialogueBox(" Ugh! Este dolor de cabeza... \n ¡¿Esta sucediendo de nuevo?!."), after: 2.0f);
+            STasks.Do(() => uiController.disableDialogueBox(), after: 8.0f);
+
+            STasks.Do(() => uiController.playFade(), after: 9.0f);
+            STasks.Do(() => loadFirstLevel(), after: 10.0f);
         }
         else if(onPlayingLevel) //While playing a level
         {

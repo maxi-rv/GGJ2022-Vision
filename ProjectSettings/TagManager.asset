@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - LevelController
-  - AudioManager
+  - Collectable
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 3804144739
+    locked: 0
+  - name: Object
+    uniqueID: 2074128953
+    locked: 0
+  - name: Player
+    uniqueID: 47921903
     locked: 0
